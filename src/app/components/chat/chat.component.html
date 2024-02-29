@@ -1,0 +1,29 @@
+<div class="chat_window">
+  <div class="top_menu">
+    <div class="title">ChatSocket</div>
+  </div>
+  <ul class="messages">
+    @for (msg of messageList; track msg.id){
+    <li class="message right" [ngClass]="{'left': msg.message_side === 'receiver', 'right' : msg.message_side === 'sender' }">
+      <div class="avatar"></div>
+      <div class="text_wrapper">
+        <div class="text">{{ msg.message }}</div>
+      </div>
+    </li>
+    }
+  </ul>
+  <div class="bottom_wrapper clearfix">
+    <div class="message_input_wrapper">
+      <input
+        class="message_input"
+        placeholder="Escribe tu mensaje"
+        [(ngModel)]="messageInput"
+        (keyup.enter)="sendMessage()"
+      />
+    </div>
+    <div class="send_message" (click)="sendMessage()">
+      <div class="icon"></div>
+      <div class="text">Enviar</div>
+    </div>
+  </div>
+</div>
