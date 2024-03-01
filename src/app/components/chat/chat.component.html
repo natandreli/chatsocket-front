@@ -7,6 +7,9 @@
     <li class="message right" [ngClass]="{'left': msg.message_side === 'receiver', 'right' : msg.message_side === 'sender' }">
       <div class="avatar"></div>
       <div class="text_wrapper">
+        @if (msg.message_side === 'receiver') {
+          <div class="name_user"> User {{msg.user}}</div>
+        }
         <div class="text">{{ msg.message }}</div>
       </div>
     </li>
